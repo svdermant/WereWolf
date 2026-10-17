@@ -49,7 +49,7 @@ Wir haben damals bei solchen Problemen in unserem [Entwicklungskanal #lykos] [de
 
 ### Der Bot funktioniert einwandfrei, aber es gibt da etwas, das ich anpassen möchte. Ist das möglich?
 
-Auf jeden Fall! Weitere Spieleinstellungen finden Sie auf [der Konfigurationsseite des Wikis](https://werewolf.chat/Configuration#gameplay). Sie können diese Einstellungen kopieren und in Ihre `botconfig.yml`-Datei einfügen und nach Belieben ändern. Zeitbezogene Einstellungen sind in Sekunden angegeben. Sie müssen den Bot neu starten, damit die Änderungen wirksam werden.
+Auf jeden Fall! Weitere Spieleinstellungen finden Sie Ihre `botconfig.yml`-Datei und können sie nach Belieben ändern. Zeitbezogene Einstellungen sind in Sekunden angegeben. Sie müssen den Bot neu starten, damit die Änderungen wirksam werden.
 
 Wenn es etwas gab, das Sie anpassen möchten, aber die Einstellung dafür nicht finden können, konnte man in [#lykos] [dev_webchat] nachfragen. Es ist möglicherweise irgendwo versteckt oder existiert nicht. Wir waren in der Regel bereit, neue Einstellungen hinzuzufügen, damit andere Bot-Besitzer ihren Bot optimal anpassen konnten. Man konnte auch [ein Problem aufmachen] [new_issue] in unserem Bug-Tracker.
 
