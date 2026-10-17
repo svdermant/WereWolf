@@ -1,0 +1,41 @@
+# Backup files
+*~
+\#*#
+.*.s[a-w][a-p]
+.s[a-w][a-p]
+
+# Python compiled files
+__pycache__/
+*.py[co]
+
+# Linter files
+.mypy_cache/
+
+# Config files
+botconfig.*
+!botconfig.example.yml
+/messages.json
+/gamemodes/*.py
+/roles/*.py
+!/hooks
+/hooks/
+!/hooks/__init__.py
+
+# Database files
+*.sqlite3
+*.bak
+
+# Log files
+*.log
+
+# Certificates/keys
+*.pem
+
+# ANTLR interpreter files (unused/unneeded)
+*.interp
+
+# IDE things
+.idea/
+.antlr/
+.vs/
+venv/
