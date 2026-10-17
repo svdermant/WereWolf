@@ -59,7 +59,7 @@ Ja! Sie können Ihre eigenen Rollen erstellen, indem Sie sie in den Ordner `role
 
 ### Kann ich auch einen neuen Spielmodus hinzufügen, der zu meiner neuen Rolle / meinen neuen Rollen passt oder einfach um die Dinge abzuwechseln?
 
-Das ist ebenfalls möglich! Schauen Sie sich die bestehenden Spielmodi in `src/gamemodes/` und die Community-Modi in [unserem Repository für Community-Modi](https://github.com/lykoss/community-modes) als Beispiele an. Legen Sie benutzerdefinierte Modi im Verzeichnis `gamemodes/` ab (*nicht* in `src/gamemodes/`). Kopieren Sie dann `gamemodes/__init__.py.example` nach `gamemodes/__init__.py`, damit Ihr Bot sie lädt.
+Das ist ebenfalls möglich! Schauen Sie sich die bestehenden Spielmodi in `src/gamemodes/` als Beispiele an. Legen Sie benutzerdefinierte Modi im Verzeichnis `gamemodes/` ab (*nicht* in `src/gamemodes/`). Kopieren Sie dann `gamemodes/__init__.py.example` nach `gamemodes/__init__.py`, damit Ihr Bot sie lädt.
 
 ### Welche Administrator-Befehle kann ich verwenden?
 
