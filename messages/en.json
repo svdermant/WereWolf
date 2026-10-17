@@ -1,6 +1,6 @@
-{
+                                                                                                                                                                                                                                                                {
     "_metadata": {
-        "*": "For assistance in configuring this metadata, please see https://werewolf.chat/Translation#Metadata",
+        "*": "For assistance in configuring this metadata",
         "fallback": null,
         "articles": [
             {"pattern": "[aeiouAEIOU]*", "article": "an"},
@@ -17,7 +17,7 @@
         ]
     },
     "_roles": {
-        "*": "For assistance in configuring this section, please see https://werewolf.chat/Translation#Roles",
+        "*": "For assistance in configuring this section",
         "alpha wolf": ["alpha wolf", "alpha wolves"],
         "amnesiac": ["amnesiac", "amnesiacs"],
         "assassin": ["assassin", "assassins"],
@@ -88,7 +88,7 @@
         "vg driven off": ["vg driven off", "vgs driven off"]
     },
     "_gamemodes": {
-        "*": "For assistance in configuring this section, please see https://werewolf.chat/Translation#Gamemodes",
+        "*": "For assistance in configuring this section",
         "aleatoire": "aleatoire",
         "alpha": "alpha",
         "boreal": "boreal",
@@ -116,7 +116,7 @@
         "villagergame": "villagergame"
     },
     "_role_aliases": {
-        "*": "For assistance in configuring this section, please see https://werewolf.chat/Translation#Role_aliases",
+        "*": "For assistance in configuring this section",
         "crazed shaman": ["cs"],
         "guardian angel": ["ga"],
         "mad scientist": ["ms"],
@@ -125,7 +125,7 @@
         "village drunk": ["drunk"]
     },
     "_commands": {
-        "*": "For assistance in configuring this section, please see https://werewolf.chat/Translation#Commands",
+        "*": "For assistance in configuring this section",
         "": [""],
         "abstain": ["abstain", "abs", "novote", "nv"],
         "admins": ["admins", "ops"],
@@ -253,7 +253,7 @@
         "fgame opt reset": ["-reset", "--reset", "-r"]
     },
     "_totems": {
-        "*": "For assistance in configuring this section, please see https://werewolf.chat/Translation#Totems",
+        "*": "For assistance in configuring this section",
         "death": "death",
         "protection": "protection",
         "silence": "silence",
@@ -275,7 +275,7 @@
         "sustenance": "sustenance"
     },
     "_role_categories": {
-        "*": "For assistance in configuring this metadata, please see https://werewolf.chat/Translation#Role_categories",
+        "*": "For assistance in configuring this metadata",
         "All": ["everyone", "everyone"],
         "Cursed": ["cursed villager", "cursed villagers"],
         "Demoniacs": ["demoniac", "demoniacs"],
@@ -304,7 +304,7 @@
         "Wolfteam": ["wolf", "wolves"]
     },
     "_phases": {
-        "*": "For assistance in configuring this metadata, please see https://werewolf.chat/Translation#Phases",
+        "*": "For assistance in configuring this metadata",
         "join": "join",
         "night": "night",
         "day": "day",
@@ -1102,10 +1102,6 @@
     "commands_list": "Commands: {0:join_simple}",
     "admin_commands_list": "Admin Commands: {0:join_simple}",
     "commands_further_help": "For help on a specific command, please use \"{=wiki!command:!} <command>\"",
-    "wiki_request_timed_out": "Request to wiki timed out. Try loading the wiki in your browser: https://werewolf.chat",
-    "wiki_open_failure": "Error loading page information. Try loading the wiki in your browser: https://werewolf.chat",
-    "wiki_no_info": "Could not find information about that topic in the wiki: https://werewolf.chat",
-    "wiki_invalid_page": "Invalid page title. Try opening the wiki at https://werewolf.chat",
     "not_an_admin": "You are not an admin.",
     "available_admins": "Available admins: {0:join_simple}",
     "command_unavailable": "You may not use this command right now.",
