@@ -1,12 +1,3 @@
-# lykos configuration file
-# Common values are commented below, but not every valid configuration is present in this file.
-# For documentation on all valid configuration elements, see https://ww.chat/config
-# To configure your bot, COPY this file to "botconfig.yml" and customize it to your liking.
-# When adding additional lines to this file, ONLY USE SPACES TO INDENT, NEVER TABS;
-# our configuration reader is picky and indenting with tabs or not matching surrounding indents will cause errors.
-# If you need additional assistance with formatting for this file, look up YAML syntax on your favorite search engine
-# or come talk to us on irc.libera.chat #lykos
-
 # The file named botconfig.yml is always loaded. A secondary file can be loaded as well which will
 # overwrite settings in the main botconfig.yml file, based on command line switches.
 # Running `wolfbot.py --config botconfig.foo.yml` will attempt to load botconfig.foo.yml.
