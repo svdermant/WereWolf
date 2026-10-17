@@ -1,289 +1,94 @@
-# WereWolf – Projektübergabe und Gesprächsstand
+# Lykos, der Open-Source-Werwolf-Bot
 
-**Stand:** 17. Oktober 2026  
-**Projekt:** WereWolf – geschichtsbasiertes Deduktionsspiel für Discord  
-**Repository:** https://github.com/svdermant/WereWolf
+## Allgemeine Informationen
 
-Dieses Dokument dient als Neuauflage und Übergabe des bisherigen Gesprächs. Es soll sicherstellen, dass bei einer Unterbrechung keine wichtigen Informationen, Entscheidungen oder Arbeitsprioritäten verloren gehen.
+### Was bedeutet Open-Source?
 
----
+Open-Source bedeutet, dass der Quellcode für jedermann frei verfügbar ist, um ihn einzusehen, herunterzuladen, zu verwenden und zu verändern.
 
-## 1. Grundidee des Projekts
+### Was ist Werwolf?
 
-Das Ziel ist die Entwicklung eines neuen Discord-Bots für das Spiel WereWolf.
+Werwolf ist ein beliebtes Partyspiel, das Werwölfen oder deren Verbündeten sowie Dorfbewohnern – einige mit besonderen Fähigkeiten – eine Rolle zuweist. Die Dorfbewohner versuchen herauszufinden, wer die Wölfe sind, und sie zu eliminieren, bevor es zu spät ist. Es kann auch andere Spieler geben, die eigene Ziele verfolgen, welche möglicherweise oder möglicherweise auch nicht irgendeiner Seite helfen.
 
-Der ursprüngliche Quellcode ist nicht mehr vorhanden. Als historische Referenz existieren jedoch noch eine englische JSON-Nachrichtendatei, Dokumentation und Informationen über die ursprünglichen Spielrollen und Spielmodi.
+### Wo konnte ich dieses Spiel spielen?
 
-Der neue Bot soll nicht einfach eine Kopie des alten Systems werden. Er soll auf Grundlage der vorhandenen Informationen neu geplant und dokumentiert werden.
+Wir betrieben eine Instanz des Bots im Kanal [#werewolf] auf QuakeNet. Off-Topic-Diskussionen fanden in #werewolf-meta im selben Netzwerk statt, und Kanalbetreiber waren in #werewolf-ops erreichbar. Es gab auch andere Netzwerke. Denken Sie daran, dass die bloße Tatsache, dass jemand als online erscheint, nicht bedeutet, dass er anwesend war oder zum Spielen verfügbar war.
 
-**Wichtig:** Zum aktuellen Planungsstand existiert noch keine neue Bot-Implementierung. Besprochene Commands, Event-Handler und Codebausteine sind zukünftige Konzepte, keine bereits vorhandenen Funktionen.
+## Für Spieler
 
-Zunächst soll der Bot auf einem einzelnen Discord-Server eingesetzt werden. Eine spätere Nutzung auf weiteren Servern ist denkbar, soll aber nicht unnötig kompliziert in die erste Planung einfließen.
+### Ich habe noch nie ein solches Spiel gespielt. Wie konnte man es spielen?
 
-## 2. Verbindliche Arbeitsreihenfolge
+Man konnte einem neuen Spiel mit `!join` beitreten. Es mussten mindestens 6 Spieler vorhanden sein, um ein Spiel starten zu können. Wenn das Spiel gestartet war, sendet Ihnen der Bot eine private Nachricht, in der er Ihnen Ihre Rolle mitteilt, auf welche Befehle Sie als diese Rolle Zugriff haben und welches Ihr Ziel ist. Man konnte dann private Befehle an den Bot senden, zum Beispiel `see person`. Einige Rollen erfordern, dass Sie den Befehl während des Tages und manchmal im Kanal verwenden. Achten Sie unbedingt auf die Nachricht
 
-Die vollständige Dokumentation hat Vorrang vor der Berechtigungsplanung und der Programmierung.
+Wenn man ein Wolf oder eine andere wolfsgesinnte Rolle war, hatte man wahrscheinlich Zugriff auf den Wolfchat. Um diesen zu nutzen, schrieb man einfach eine Nachricht an den Bot, und die Nachricht wird an alle anderen Wolfchat-Spieler weitergeleitet. Sie erhalten auch deren Nachrichten.
 
-Die vorgesehene Reihenfolge lautet:
+Der Bot enthält über 50 Rollen, daher kann es eine Weile dauern, bis man sich an alle gewöhnt hat. Übung macht den Meister!
 
-1. Lore und historische Grundlagen dokumentieren und analysieren.
-2. Vorhandene Nachrichten-JSON untersuchen und ihre Struktur dokumentieren.
-3. Mögliche Discord-Event-Handler und interne Spielereignisse erfassen.
-4. Wiederverwendbare Codebausteine und mögliche technische Komponenten dokumentieren.
-5. Spielabläufe, Rolleninteraktionen, Spielmodi und weitere offene Dokumentationsbereiche vervollständigen.
-6. Gesamte Dokumentation auf Vollständigkeit, Widersprüche und fehlende Themen prüfen.
-7. Erst danach das Berechtigungssystem und die endgültigen Command-Funktionen ausarbeiten.
-8. Anschließend die konkrete technische Umsetzung planen.
+### Welche Befehle konnte ich als Spieler verwenden?
 
-**Die Rollenberechtigungen und Command-Funktionen sollen jetzt nicht weiter ausgearbeitet werden.** Sie werden erst wieder aufgegriffen, wenn die Dokumentation vollständig abgeschlossen ist.
+Lykos verfügt über eine Vielzahl von Befehlen, die für verschiedene Zwecke verwendet werden können. Die Liste der Befehle findet man heute unter: https://github.com/svdermant/WereWolf/wiki/Bot-Commands
 
-## 3. Wichtige Projektlinks
+## Für Bot-Betreiber
 
-- Repository: https://github.com/svdermant/WereWolf
-- README: https://github.com/svdermant/WereWolf/blob/main/README.md
-- Wiki für Admin-Befehle: https://github.com/svdermant/WereWolf/wiki/Admin-Befehle
-- Lore-Wiki: https://github.com/svdermant/WereWolf/wiki/Lore
-- Commit mit der ursprünglichen englischen Nachrichten-JSON: https://github.com/svdermant/WereWolf/commit/ef9ea8b18fed4bac578759364809d22b3ccfac88
-- Direkte Datei `messages/en.json` aus diesem Commit: https://raw.githubusercontent.com/svdermant/WereWolf/ef9ea8b18fed4bac578759364809d22b3ccfac88/messages/en.json
+### Ich möchte diesen Bot in meinem eigenen Netzwerk betreiben, wie kann ich das machen?
 
-## 4. Lore und Hintergrundgeschichte
+Der Bot erfordert einige Einrichtungsschritte, bevor er einsatzbereit ist. Hier sind die erforderlichen Schritte:
 
-Die Lore-Seite wurde vom Projektinhaber erstellt und ist die Grundlage für die weitere inhaltliche Dokumentation.
+- Sie müssen Python 3.11 oder höher auf Ihrem Computer oder dem Server installiert haben, auf dem der Bot läuft. Schritte zur Installation von Python auf Ihrem Computer werden hier nicht behandelt, aber wenn Sie Windows verwenden, können Sie einfach die [offiziellen Python-Binärdateien] [pydownload] herunterladen und installieren.
+- Wenn Sie Python aus dem Quellcode erstellen, müssen Sie SQLite3 als Teil des Build-Prozesses einbinden, da der Bot es verwendet.
+- Um die Möglichkeit zu aktivieren, den Bot mit den von uns bereitgestellten Änderungen zu aktualisieren, müssen Sie [Git herunterladen und installieren] [git].
+- Wenn Ihr Netzwerk dies unterstützt, erstellen Sie ein Konto für Ihren Bot und geben Sie ihm über Ihren Kanalverwaltungsdienst automatisches Op beim Beitreten zu Ihrem Kanal (typischerweise das Flag `+O`, wenn Sie `ChanServ` verwenden).
+- Kopieren Sie die Datei `botconfig.example.yml` nach `botconfig.yml` (stellen Sie sicher, dass Sie eine Kopie erstellen und sie nicht einfach umbenennen), und öffnen Sie sie mit Ihrem bevorzugten Texteditor. Die Datei ist ausführlich mit Beispielen und zusätzlichen Informationen kommentiert. Modifizieren Sie die folgenden Abschnitte. Wenn eine Einstellung hier nicht vorhanden ist, bedeutet dies, dass der Standardwert für die meisten Fälle in Ordnung ist.
+  * transports: Aktualisieren Sie dies, um auf Ihr IRC-Netzwerk zu verweisen
+  * access: Verweisen Sie hiermit auf Ihr Konto, damit Sie den Bot über IRC steuern können
+  * logging: Lesen Sie die Kommentare und aktualisieren Sie sie entsprechend. Für einen Test-Bot könnten Sie alles nach stdout protokollieren (wie in der ersten Gruppe gezeigt). Wenn Sie Transport verwenden möchten, stellen Sie sicher, dass Sie einen Kanal auswählen, und lesen Sie die Kommentare für weitere Informationen
 
-Sie beschreibt unter anderem:
+### Ich habe alles korrekt eingegeben, aber der Bot funktioniert in irgendeiner Weise nicht. Was kann ich tun?
 
-- Ursprünge und Hintergründe der Spielrollen.
-- Beziehungen zwischen einzelnen Rollen und übernatürlichen Wesen.
-- Besondere Fähigkeiten und Eigenschaften.
-- Die Entstehungsgeschichten der verschiedenen Spielmodi.
-- Historische Ereignisse und Zusammenhänge innerhalb der Spielwelt.
+Wir haben damals bei solchen Problemen in unserem [Entwicklungskanal #lykos] [dev_webchat] auf Quakenet geholfen. Man konnte dort direkt im Kanal fragen und warten, bis jemand antwortet. Bitte schreiben Sie Personen nicht direkt an, da dies andere Personen daran hindert, ebenfalls zu helfen. Personen mit Voice (typischerweise ein '+' vor ihrem Namen in der Benutzerliste oder ein blauer Kreis für Hexchat) sind Entwickler und können eher helfen.
 
-Die Spielmodi umfassen derzeit:
+### Der Bot funktioniert einwandfrei, aber es gibt da etwas, das ich anpassen möchte. Ist das möglich?
 
-- Standard
-- Töricht
-- Wahnsinnig
-- Zufällig
-- Mahlstrom
-- Aleatoire
-- Wächter
+Auf jeden Fall! Weitere Spieleinstellungen finden Sie auf [der Konfigurationsseite des Wikis](https://werewolf.chat/Configuration#gameplay). Sie können diese Einstellungen kopieren und in Ihre `botconfig.yml`-Datei einfügen und nach Belieben ändern. Zeitbezogene Einstellungen sind in Sekunden angegeben. Sie müssen den Bot neu starten, damit die Änderungen wirksam werden.
 
-Diese Geschichten beschreiben die damalige Entstehung der Spielmodi und teilweise deren Spielabläufe. Sie sollen nicht einfach zu einer einzigen linearen Geschichte zusammengefasst werden.
+Wenn es etwas gab, das Sie anpassen möchten, aber die Einstellung dafür nicht finden können, konnte man in [#lykos] [dev_webchat] nachfragen. Es ist möglicherweise irgendwo versteckt oder existiert nicht. Wir waren in der Regel bereit, neue Einstellungen hinzuzufügen, damit andere Bot-Besitzer ihren Bot optimal anpassen konnten. Man konnte auch [ein Problem aufmachen] [new_issue] in unserem Bug-Tracker.
 
-Langfristig können sie als erzählerische Epochen, Kapitel oder Szenarien in das neue System integriert werden.
+### Die Rollen sind schön, aber ich möchte meine eigenen hinzufügen. Kann ich das tun?
 
-### Namensabweichungen
+Ja! Sie können Ihre eigenen Rollen erstellen, indem Sie sie in den Ordner `roles` legen. Es gibt eine Basis-„Skelettdatei“ `src/roles/_skel.py`, die Sie kopieren und einfügen können, um einige grundlegende Dinge zu erhalten. Sie müssen Ihre eigenen Befehle definieren (falls zutreffend) und [Ereignisse registrieren] [events]. Wenn Sie dabei Hilfe benötigen, halfen wir gerne weiter.
 
-Die ursprüngliche Version wurde auf einem englischsprachigen Server entwickelt. Da der Quellcode verloren ist, stammen manche Bezeichnungen noch aus der englischen Version. Bei der Erstellung der Lore wurden bereits zahlreiche Namen ins Deutsche übersetzt.
+### Kann ich auch einen neuen Spielmodus hinzufügen, der zu meiner neuen Rolle / meinen neuen Rollen passt oder einfach um die Dinge abzuwechseln?
 
-Beispiele:
+Das ist ebenfalls möglich! Schauen Sie sich die bestehenden Spielmodi in `src/gamemodes/` und die Community-Modi in [unserem Repository für Community-Modi](https://github.com/lykoss/community-modes) als Beispiele an. Legen Sie benutzerdefinierte Modi im Verzeichnis `gamemodes/` ab (*nicht* in `src/gamemodes/`). Kopieren Sie dann `gamemodes/__init__.py.example` nach `gamemodes/__init__.py`, damit Ihr Bot sie lädt.
 
-- `werekitten` → Werkätzchen
-- `minion` → Handlanger
+### Welche Administrator-Befehle kann ich verwenden?
 
-Diese Zuordnungen sind Beispiele für die bisherige Übersetzungsarbeit. Weitere Rollenbezeichnungen sollen nach und nach vereinheitlicht werden.
+Eine [Liste der Administrator-Befehle](https://github.com/svdermant/WereWolf/wiki/Admin-Befehle) ist in unserem Wiki verfügbar.
 
-Abweichende Bezeichnungen wie „Werkitten“ und „Werkätzchen“ sind deshalb nicht automatisch inhaltliche Widersprüche. Sie können aus der früheren englischen Namensgebung entstanden sein.
+### Unsere Spielerbasis besteht größtenteils aus Nicht-Englischsprachigen. Gibt es Unterstützung für unsere Sprache?
 
-Bei der Vereinheitlichung sollen die bevorzugten deutschen Bezeichnungen des Projektinhabers maßgeblich sein.
+Damals nicht. Lykos ist jedoch eine Gemeinschaftsarbeit, und deshalb ermutigen wir Sie, Ihre eigene Übersetzung einzureichen! Wir laden Sie ein, [mit uns zu kommunizieren] [dev_webchat], wenn Sie Fragen zum weiteren Vorgehen haben.
 
-### Grundsatz für die Lore
+### Wir möchten X mit einer Rolle/einem Spielmodus machen, aber der Bot scheint das nicht zu unterstützen. Was kann ich tun?
 
-Die bestehende Lore soll nicht ohne Grund umgeschrieben werden. Unklare Beziehungen, widersprüchliche Angaben und offene Hintergrundfragen sollen zunächst gesammelt und anschließend mit dem Projektinhaber geklärt werden.
+Lassen Sie es uns wissen! Wir werden unser Bestes tun, um Rollen und Modi von Drittanbietern unterzubringen und sicherzustellen, dass sie einwandfrei funktionieren!
 
-Es dürfen keine neuen Hintergrundinformationen als bereits feststehende Lore ausgegeben werden, wenn sie nicht durch die vorhandenen Texte oder Entscheidungen des Projektinhabers gedeckt sind.
+### Zusätzliche Informationen für Bot-Betreiber
 
-## 5. Ziel: ein geschichtsbasierter Deduktions-Bot
+Sie können den Bot ausführen, indem Sie `./wolfbot.py` unter Linux eingeben oder einfach doppelt auf die Datei `wolfbot.py` unter Windows klicken.
 
-Der neue Bot soll mehr sein als ein technisches System, das lediglich Befehle verarbeitet und Statusmeldungen ausgibt.
+## Mitwirkende (Credits)
 
-Die angestrebte Spielerfahrung verbindet drei Ebenen:
+Dieser Bot wäre nicht das, was er heute ist, ohne den Beitrag vieler Menschen. Hier sind einige dieser Personen:
 
-### Ebene A – Lore und Weltgeschichte
+jcao219: Ursprünglicher Programmierer
 
-Diese Ebene erklärt die Welt, die Herkunft der Rollen, die Beziehungen zwischen Figuren und die Entstehung der Spielmodi.
+moonmoon: Hauptentwickler, auch bekannt als Serkons oder Svdermant 
 
-### Ebene B – Spielmechanik und Ereignisse
+Iciloo: Tests
 
-Diese Ebene umfasst die tatsächlichen Spielabläufe: Nachtaktionen, Angriffe, Schutz, Abstimmungen, Tod, Rollenwechsel und weitere Wechselwirkungen.
+Jeder, der zum Code beigetragen hat, egal wie klein der Beitrag war.  
+Jeder, der Probleme in unserem Bug-Tracker gemeldet hat.  
+Und natürlich an alle Bot-Besitzer und Spieler, die dieses Projekt all die Zeit am Leben erhalten haben!
 
-### Ebene C – Erzählerische Darstellung
-
-Diese Ebene beschreibt, wie der Bot die tatsächlichen Spielereignisse in eine Geschichte übersetzt.
-
-Beispielsweise soll der Bot nicht bloß melden, dass der Tag begonnen hat. Er könnte beschreiben, wie die Bewohner auf den Dorfplatz kommen, welche Spuren sie entdecken und wie die Ereignisse der vergangenen Nacht das Dorf verändert haben.
-
-Die Geschichte soll auf dem tatsächlichen Spielgeschehen basieren. Ein verhinderter Angriff darf beispielsweise nicht wie ein erfolgreicher Angriff erzählt werden.
-
-Die Erzählung soll die Spieler in die Spielwelt integrieren. Handlungen der Spieler sollen sich in den nachfolgenden Szenen widerspiegeln.
-
-Dafür müssen wir nicht zwingend künstliche Intelligenz verwenden. Auch vorbereitete, kombinierbare Textbausteine können dynamische und abwechslungsreiche Geschichten erzeugen.
-
-## 6. Die historische Nachrichten-JSON
-
-Ein wichtiges Überbleibsel des ursprünglichen Systems ist die Datei:
-
-`messages/en.json`
-
-Sie wurde im Commit `ef9ea8b18fed4bac578759364809d22b3ccfac88` hinzugefügt.
-
-Die Datei umfasst laut bisheriger Betrachtung 1.507 Zeilen und enthält zahlreiche Nachrichten-Schlüssel, englische Texte und formatierte Platzhalter.
-
-Sie ist eine historische Referenz für das ursprüngliche System.
-
-### Bisher erkannte Inhalte
-
-Die Datei enthält unter anderem:
-
-- Rollennamen und Mehrzahlformen.
-- Namen verschiedener Spielmodi.
-- Command-Namen und Aliase.
-- Nachrichten zu Spielbeginn und Phasenwechseln.
-- Texte zu Abstimmungen und Todesfällen.
-- Varianten für unterschiedliche Spielausgänge.
-- Meldungen zu Rollenfähigkeiten und Wechselwirkungen.
-- Technische Meldungen und Hilfetexte.
-- Platzhalter für Spieler, Rollen, Rundennummern, Zeitangaben und weitere dynamische Informationen.
-
-Beispiele für bisher betrachtete Schlüssel:
-
-- `player_joined`
-- `night_begin`
-- `sunrise`
-- `guardian_target_another`
-- `gunner_victim_bodyguard`
-- `fflags_usage`
-
-Außerdem wurden Formatierungen wie `{0:@}`, `{1!role:bold}`, `{0:join(@)}` und `{=wolf!role}` festgestellt.
-
-Solche Ausdrücke deuten auf dynamische Nachrichtenerzeugung und spezielle Formatierungsregeln hin. Ihre vollständige Bedeutung muss noch systematisch untersucht werden.
-
-### Grenzen der JSON
-
-Die JSON enthält Nachrichtentexte und Strukturinformationen, aber nicht zwangsläufig die vollständige ursprüngliche Spiellogik.
-
-Aus einem Nachrichtenschlüssel lässt sich möglicherweise ableiten, welches Ereignis dargestellt wird. Er beweist jedoch nicht, wie die ursprüngliche Engine dieses Ereignis ausgelöst oder verarbeitet hat.
-
-Bei der weiteren Analyse müssen wir unterscheiden zwischen:
-
-1. Direkt aus der Datei belegbaren Informationen.
-2. Plausiblen Schlussfolgerungen.
-3. Noch offenen Fragen.
-
-### Vorgesehene Dokumentation der JSON
-
-Für die weitere Analyse soll eine Übersicht entstehen, die möglichst folgende Informationen enthält:
-
-- Nachrichten-Schlüssel.
-- Englischer Originaltext.
-- Vorgesehene deutsche Fassung.
-- Platzhalter und benötigte Parameter.
-- Vermutetes oder belegtes auslösendes Ereignis.
-- Betroffene Rolle oder Spielmodus, sofern bekannt.
-- Varianten für unterschiedliche Ereignisausgänge.
-- Offene Fragen.
-
-Die Nachrichten sollen nicht automatisch unverändert übernommen werden. Sie dienen als Referenz, um die ursprüngliche Spielerfahrung zu erhalten und für das neue geschichtsbasierte System weiterzuentwickeln.
-
-## 7. Noch zu dokumentierende Event-Handler und Ereignisse
-
-Nach der Lore-Analyse und der strukturierten Untersuchung der JSON sollen mögliche Discord-Event-Handler und interne Spielereignisse dokumentiert werden.
-
-Dabei müssen wir zwei unterschiedliche Kategorien auseinanderhalten:
-
-**Discord-Events:** Ereignisse, die von Discord beziehungsweise der verwendeten Bibliothek ausgelöst werden, beispielsweise Nachrichten, Interaktionen oder Änderungen von Mitgliederdaten.
-
-**Interne Spielereignisse:** Ereignisse innerhalb der Spielmechanik, beispielsweise der Beginn einer Nacht, die Auflösung eines Angriffs, ein Rollenwechsel oder das Spielende.
-
-Mögliche Themen für die spätere Dokumentation:
-
-- Beginn und Ende einer Spielphase.
-- Aktionen einzelner Rollen.
-- Erfolgreiche und verhinderte Angriffe.
-- Schutzaktionen und deren Wechselwirkungen.
-- Tod und mögliche Folgeeffekte.
-- Wiederbelebung und Rollenwechsel.
-- Abstimmungen und deren Ergebnisse.
-- Besondere Ereignisse einzelner Spielmodi.
-- Spielende und abschließende Erzählung.
-- Fehlerbehandlung und ungültige Aktionen.
-
-Diese Liste ist eine Sammlung möglicher Dokumentationsthemen, keine endgültige technische Spezifikation.
-
-## 8. Mögliche Codebausteine
-
-Nach den Event-Handlern sollen wiederverwendbare technische Komponenten untersucht werden.
-
-Mögliche Themen sind:
-
-- Verwaltung von Spielzuständen.
-- Verwaltung von Rollen und Spielerzugehörigkeiten.
-- Verarbeitung von Rollenaktionen.
-- Auflösung von Ereignissen in einer festgelegten Reihenfolge.
-- Auswahl und Formatierung von Nachrichten.
-- Erzählerische Textbausteine und Varianten.
-- Verwaltung von Spielmodi.
-- Datenhaltung und Persistenz.
-- Fehlerbehandlung und Protokollierung.
-
-Es soll zunächst dokumentiert werden, welche Komponenten möglicherweise sinnvoll sind. Die konkrete Implementierung und endgültige Architektur bleiben einer späteren Planungsphase vorbehalten.
-
-## 9. Vorläufige Command- und Berechtigungshinweise
-
-Einige zukünftige Admin-Commands wurden bereits besprochen. Die Ergebnisse sind nur als vorläufige Planungshinweise zu verstehen und sollen während der Dokumentationsphase nicht weiter ausgearbeitet werden.
-
-Bisherige Entscheidungen:
-
-- `!fgame` und `!spectate`: Spielmoderatoren.
-- `!revealroles` im Debug-Modus: Administratoren.
-- `!fjoin` und `!fleave`: Spielmoderatoren.
-- `!fstasis`: Administratoren.
-- `!fsay` und `!fdo`: Administratoren.
-- `!aftergame` und `!lastgame`: Administratoren.
-- `!restart` und `!update`: ausschließlich Besitzer.
-- `!fwarn add`: Spielmoderatoren.
-- `!fwarn list/view`: Spielmoderatoren und höhere Rollen, nicht Helfer.
-- `!fwarn set/del`: Administratoren und Besitzer.
-- `!fday`, `!fnight`, `!fstart`, `!fstop`, `!fwait` und `!fgoat`: Spielmoderatoren.
-- `!force`, `!rforce` und `!frole`: Administratoren.
-
-Noch nicht endgültig bestätigt wurden unter anderem einzelne Vorschläge zu `!fdie`, `!refreshdb`, `!eval`, `!exec` und `!fspectate`.
-
-Weitere Hinweise:
-
-- `!fsend` soll im neuen Bot nicht mehr verfügbar sein.
-- `!template` wird nicht mehr benötigt.
-- Der korrekte Command-Name lautet `!fwarn`, nicht `!fwarm`.
-- `!fflags` ist als zukünftiges dynamisches Rollen- und Berechtigungsmanagement gedacht.
-
-Diese Themen werden erst nach Abschluss der Dokumentation wieder aufgenommen.
-
-## 10. Vorgehensweise bei der weiteren Zusammenarbeit
-
-Bei jeder weiteren Bearbeitung gelten folgende Grundsätze:
-
-- Keine nicht vorhandene Implementierung unterstellen.
-- Historische Informationen, feststehende Entscheidungen und neue Ideen klar voneinander trennen.
-- Unklare Sachverhalte zunächst als offene Fragen markieren.
-- Keine Lore eigenmächtig erfinden oder verändern.
-- Englische Originalbezeichnungen und deutsche Übersetzungen nachvollziehbar zuordnen.
-- Nachrichten und Spielereignisse mit den entsprechenden Rollen und Spielmodi verknüpfen, soweit die Quellen dies ermöglichen.
-- Dokumentation vollständig abschließen, bevor die Berechtigungsplanung weitergeht.
-- Bestehende Wiki-Seiten und GitHub-Dateien als Referenz verwenden, statt bereits dokumentierte Inhalte unnötig neu zu schreiben.
-
-## 11. Nächste konkrete Arbeitsschritte
-
-1. Die Lore als Grundlage der weiteren Dokumentation behandeln.
-2. Die englische `messages/en.json` systematisch untersuchen.
-3. Nachrichtenschlüssel, Parameter und Varianten katalogisieren.
-4. Nachrichten mit Rollen, Spielmodi und möglichen Spielereignissen verknüpfen.
-5. Offene Fragen zur ursprünglichen Spiellogik sammeln.
-6. Mögliche Discord-Event-Handler und interne Spielereignisse dokumentieren.
-7. Wiederverwendbare Codebausteine und weitere technische Themen dokumentieren.
-8. Alle Wiki-Seiten und sonstigen Dokumentationsbereiche abschließend prüfen.
-9. Erst nach vollständigem Dokumentationsabschluss die Berechtigungen und Commands weiter planen.
-
----
-
-**Wichtigster Übergabepunkt:** Das Projekt befindet sich in der Dokumentations- und Konzeptionsphase. Die Lore und die historische Nachrichten-JSON sollen gemeinsam als Grundlage dienen, um das ursprüngliche Spiel besser zu verstehen. Das langfristige Ziel ist ein geschichtsbasierter Deduktions-Bot, bei dem die tatsächlichen Spielerhandlungen die Erzählung beeinflussen. Das Berechtigungssystem und die Programmierung sind vorerst zurückgestellt, bis die Dokumentation vollständig abgeschlossen ist.
->>>>>>> 590ee0ff42c8f2c975741fd82ab75a1bbceafd3f
+Besonderer Dank geht an LaneAtomic für ihre Arbeit am Nachrichtensystem, die das Programmieren zukünftiger Funktionen erheblich erleichtert hat.
